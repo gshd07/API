@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "2f623649-6d6d-4108-99d3-3f5360ed8db5",
+		"name": "Guru",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22333078"
+	},
+	"item": [
+		{
+			"name": "https://test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsondata = pm.response.json();\r",
+							"\r",
+							"pm.test(\"validates that the team has only 4 foreign players\",function(){\r",
+							"pm.expect(jsondata.player.filter(m=> m.country !== \"India\").length).to.be.lessThan(5);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate that there is at least one wicket keeper\",function(){\r",
+							"     pm.expect(jsondata.player.filter(m => m.role ===\"Wicket-keeper\").length).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://5f74d205-2585-4980-9a15-af0a9d5c46b3.mock.pstmn.io",
+					"protocol": "https",
+					"host": [
+						"5f74d205-2585-4980-9a15-af0a9d5c46b3",
+						"mock",
+						"pstmn",
+						"io"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/https://test",
+							"protocol": "{{url}}/https",
+							"host": [
+								"test"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"name\": \"Royal Challengers Bangalore\",\n  \"location\": \"Bangalore\",\n  \"player\": [\n    {\n      \"name\": \"Faf Du Plessis\",\n      \"country\": \"South Africa\",\n      \"role\": \"Batsman\",\n      \"price-in-crores\": \"7\"\n    },\n    {\n      \"name\": \"Virat Kohli\",\n      \"country\": \"India\",\n      \"role\": \"Batsman\",\n      \"price-in-crores\": \"15\"\n    },\n    {\n      \"name\": \"Glenn Maxwell\",\n      \"country\": \"Australia\",\n      \"role\": \"Batsman\",\n      \"price-in-crores\": \"11\"\n    },\n    {\n      \"name\": \"Mohammad Siraj\",\n      \"country\": \"India\",\n      \"role\": \"Bowler\",\n      \"price-in-crores\": \"7\"\n    },\n    {\n      \"name\": \"Harshal Patel\",\n      \"country\": \"India\",\n      \"role\": \"Bowler\",\n      \"price-in-crores\": \"10.75\"\n    },\n    {\n      \"name\": \"Wanindu Hasaranga\",\n      \"country\": \"Srilanka\",\n      \"role\": \"Bowler\",\n      \"price-in-crores\": \"10.75\"\n    },\n    {\n      \"name\": \"Dinesh Karthik\",\n      \"country\": \"India\",\n      \"role\": \"Wicket-keeper\",\n      \"price-in-crores\": \"5.5\"\n    },\n    {\n      \"name\": \"Shahbaz Ahmed\",\n      \"country\": \"India\",\n      \"role\": \"All-Rounder\",\n      \"price-in-crores\": \"2.4\"\n    },\n    {\n      \"name\": \"Rajat Patidar\",\n      \"country\": \"India\",\n      \"role\": \"Batsman\",\n      \"price-in-crores\": \"0.20\"\n    },\n    {\n      \"name\": \"Josh Hazlewood\",\n      \"country\": \"Australia\",\n      \"role\": \"Bowler\",\n      \"price-in-crores\": \"7.75\"\n    },\n    {\n      \"name\": \"Mahipal Lomror\",\n      \"country\": \"India\",\n      \"role\": \"Bowler\",\n      \"price-in-crores\": \"7.75\"\n    }\n  ]\n}"
+				}
+			]
+		}
+	]
+}

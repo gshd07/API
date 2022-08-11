@@ -1,0 +1,16 @@
+Write a test that validates that the team has only 4 foreign players
+
+const jsondata = pm.response.json();
+pm.test("validates that the team has only 4 foreign players",function(){
+pm.expect(jsondata.player.filter(m=> m.country !== "India").length).to.be.lessThan(5);
+});
+
+---------------------------------
+Write a test that validates that there is at least one wicket keeper
+
+const jsondata = pm.response.json();
+pm.test("validate that there is at least one wicket keeper",function(){
+     pm.expect(jsondata.player.filter(m => m.role ==="Wicket-keeper").length).to.be.above(0);
+});
+
+-----------------------------------
